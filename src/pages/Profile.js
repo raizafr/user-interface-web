@@ -1,28 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Profile = () => {
-  const [user, setUser] = useState([]);
+  const user = useContext(UserContext);
   console.log(user);
-  const getUser = () => {
-    axios
-      .get("http://api.dev.indothon.com/api/v1/auth/profile", {
-        withCredentials: true,
-      })
-      .then(function (response) {
-        // handle success
-        setUser(response.data);
-        // console.log(response);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-  };
-  useEffect(() => getUser(), []);
   return (
     <section className="flex justify-center mt-16">
       <div className="bg-primary w-1/3 rounded">

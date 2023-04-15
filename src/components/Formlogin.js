@@ -2,25 +2,23 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const Formlogin = () => {
-  const [login, setLogin] = useState({email:"",password:""});
-  const navigate =useNavigate()
+  const [login, setLogin] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
-  const handlingLogin=(e)=>{
-    e.preventDefault()
+  const handlingLogin = (e) => {
+    e.preventDefault();
     axios
-    .post("http://api.dev.indothon.com/api/v1/auth/login", login, {
-      withCredentials: true,
-    })
-    .then(function (response) {
-      console.log(response)
-      navigate("/profile")
-    })
-    .catch(function (error) {
-      console.log(error)
-    });
-  }
+      .post("http://api.dev.indothon.com/api/v1/auth/login", login, {
+        withCredentials: true,
+      })
+      .then(function (response) {
+        navigate("/profile");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <section className="flex justify-center mt-16">
       <div className="bg-primary w-1/3 rounded">
@@ -34,7 +32,7 @@ const Formlogin = () => {
             </label>{" "}
             <br />
             <input
-            onChange={(e)=>setLogin({...login,email:e.target.value})}
+              onChange={(e) => setLogin({ ...login, email: e.target.value })}
               type="email"
               placeholder="example@gmail.com"
               name="email"
@@ -47,7 +45,7 @@ const Formlogin = () => {
             </label>{" "}
             <br />
             <input
-            onChange={(e)=>setLogin({...login,password:e.target.value})}
+              onChange={(e) => setLogin({ ...login, password: e.target.value })}
               type="password"
               placeholder="your password"
               name="email"
