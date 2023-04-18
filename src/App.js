@@ -1,13 +1,13 @@
 import { ToastContainer } from "react-toastify";
-import Navbar from "./components/Navbar";
-import Router from "./router/router";
+import Routing from "./router/router";
+import NavbarComponent from "./components/Navbar";
 
 function App() {
   return (
     <>
       <ToastContainer />
-      <Navbar />
-      <Router />
+      <NavbarComponent />
+      <Routing />
     </>
   );
 }
